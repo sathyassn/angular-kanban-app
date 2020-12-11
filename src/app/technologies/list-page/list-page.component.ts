@@ -17,7 +17,7 @@ export class ListPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.seo.generateTags({
-      title: 'Technologies List',
+      title: 'Technologies',
       description: 'A list of web technologies used in this demo application',
     });
 
