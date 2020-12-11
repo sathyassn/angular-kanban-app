@@ -1,0 +1,35 @@
+.server-error {
+  // color: rgba(243, 83, 83, 0.8);
+  text-align: center;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 20vw;
+  max-width: 30vw;
+  margin: 0 auto;
+  border-radius: 1%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin: 0.3rem;
+}
+
+mat-error {
+  margin: 0.15rem;
+}
+
+.content-center {
+  text-align: center;
+}
+
+.btn-submit {
+  margin: 0.3rem auto;
+  width: 50%;
+}

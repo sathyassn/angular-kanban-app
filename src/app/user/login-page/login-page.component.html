@@ -9,6 +9,8 @@
 
   <h5 class="content" *ngIf="!(afAuth.authState | async)">-- Or --</h5>
 
+  <app-email-login *ngIf="!(afAuth.authState | async)"></app-email-login>
+
   <div class="content" *ngIf="afAuth.authState | async as user">
     <p mat-subheader>
       Logged in as <strong>{{ user?.email }}</strong>
