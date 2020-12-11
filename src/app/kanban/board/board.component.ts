@@ -62,4 +62,10 @@ export class BoardComponent {
       }
     });
   }
+
+  deleteBoard() {
+    if (this.board.id) {
+      this.boardService.deleteBoard(this.board.id);
+    }
+  }
 }
