@@ -1,1 +1,36 @@
-<p>task-dialog works!</p>
+<div class="dialog-window">
+  <h1 mat-dialog-title>Task</h1>
+  <div mat-dialog-content class="dialog-form" [formGroup]="form">
+    <mat-form-field>
+      <textarea
+        class="task-description"
+        matInput
+        placeholder="Task Description"
+        formControlName="taskDescription"
+        rows="4"
+        maxlength="200"
+      >
+      </textarea>
+    </mat-form-field>
+    <br />
+
+    <mat-button-toggle-group formControlName="label">
+      <mat-button-toggle *ngFor="let label of labelOptions" [value]="label">
+        <mat-icon [ngClass]="label"
+          >{{ label === "gray" ? "check_circle" : "lens" }}
+        </mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-dialog-actions>
+      <button
+        mat-button
+        cdkFocusInitial
+        [disabled]="form.invalid"
+        (click)="sendData()"
+      >
+        {{ data.isNew ? "Add Task" : "Update Task" }}
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

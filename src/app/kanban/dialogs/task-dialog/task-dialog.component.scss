@@ -1,0 +1,39 @@
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 20vw;
+  max-width: 30vw;
+  height: 30vh;
+  overflow: visible;
+}
+
+.task-description {
+  resize: unset;
+  width: 100%;
+}
+
+mat-button-toggle-group {
+  width: fit-content;
+  align-items: center;
+}
+
+.blue {
+  color: #71deff;
+}
+.green {
+  color: #36e9b6;
+}
+.yellow {
+  color: #ffcf44;
+}
+.purple {
+  color: #b15cff;
+}
+.red {
+  color: #e74a4a;
+}
+
+.gray {
+  color: gray;
+  align-items: center;
+}
