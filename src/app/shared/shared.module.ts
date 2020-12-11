@@ -19,7 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
 
 // Internal Modules
-const components = [];
+const components = [ShellComponent];
 const modules = [
   CommonModule,
   RouterModule,
@@ -37,8 +37,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, ShellComponent],
+  declarations: [...components],
   imports: [...modules],
-  exports: [...modules, ...components, ShellComponent],
+  exports: [...modules, ...components],
 })
 export class SharedModule {}
