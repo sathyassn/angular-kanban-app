@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularfire-my-app": {
+      "hosting": {
+        "kanban-app": [
+          "angularfire-my-app"
+        ]
+      }
+    }
+  }
+}
