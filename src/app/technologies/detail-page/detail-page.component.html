@@ -1,1 +1,27 @@
-<p>detail-page works!</p>
+<h1>Detail Page</h1>
+
+<mat-card>
+  <p>
+    This page is server side rendered using Angular Universal, NestJS and Google
+    Cloud Run
+  </p>
+  Paste URL:
+  <pre>/{{ techId }}</pre>
+  <a
+    href="https://cards-dev.twitter.com/validator"
+    target="blank"
+    mat-stroked-button
+  ></a>
+  <button mat-raised-button routerLink="/technologies">Back</button>
+</mat-card>
+
+<mat-card *ngIf="technology | async as tech">
+  <mat-card-header>
+    <mat-card-title>{{ tech.name }}</mat-card-title>
+    <mat-card-subtitle>Note on the tech</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="tech.image" [alt]="tech.name" />
+  <mat-card-content>
+    <p>{{ tech.description }}</p>
+  </mat-card-content>
+</mat-card>
