@@ -18,10 +18,21 @@ const routes: Routes = [
       import('./kanban/kanban.module').then((m) => m.KanbanModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'technologies',
+    loadChildren: () =>
+      import('./technologies/technologies.module').then(
+        (m) => m.TechnologiesModule
+      ),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
