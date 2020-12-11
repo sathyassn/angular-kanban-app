@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { ListPageComponent } from './list-page/list-page.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: ListPageComponent,
+  },
+  {
+    path: ':techId',
+    component: DetailPageComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TechnologiesRoutingModule { }
+export class TechnologiesRoutingModule {}
