@@ -49,4 +49,11 @@ export class TaskDialogComponent implements OnInit {
     console.log('TaskDialog-OutputDataSent', taskData); // CONSOLE LOG
     this.dialogRef.close(taskData);
   }
+
+  deleteTask() {
+    if (this.data.boardId) {
+      this.boardService.removeTask(this.data.boardId, this.data.task);
+      this.dialogRef.close();
+    }
+  }
 }

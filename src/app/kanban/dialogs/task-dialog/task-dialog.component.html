@@ -31,6 +31,10 @@
       >
         {{ data.isNew ? "Add Task" : "Update Task" }}
       </button>
+      <app-delete-button
+        *ngIf="!data.isNew"
+        (delete)="deleteTask()"
+      ></app-delete-button>
     </mat-dialog-actions>
   </div>
 </div>
