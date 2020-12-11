@@ -20,7 +20,7 @@ import { ShellComponent } from './shell/shell.component';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
 
 // Internal Modules
-const components = [ShellComponent];
+const components = [ShellComponent, DeleteButtonComponent];
 const modules = [
   CommonModule,
   RouterModule,
@@ -38,7 +38,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, DeleteButtonComponent],
+  declarations: [...components],
   imports: [...modules],
   exports: [...modules, ...components],
 })
