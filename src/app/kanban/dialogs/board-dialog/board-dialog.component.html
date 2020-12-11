@@ -1,1 +1,25 @@
-<p>board-dialog works!</p>
+<h1 mat-dialog-title>Board</h1>
+<div mat-dialog-content class="dialog-form" [formGroup]="form">
+  <p>What shall we call this board?</p>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Board Title"
+      formControlName="title"
+    />
+  </mat-form-field>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-button
+      [disabled]="form.invalid"
+      cdkFocusInitial
+      (click)="sendData()"
+    >
+      Create
+    </button>
+  </mat-dialog-actions>
+</div>

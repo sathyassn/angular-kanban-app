@@ -5,6 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { Board } from '../board.model';
 import { BoardService } from '../board.service';
+import { BoardDialogComponent } from '../dialogs/board-dialog/board-dialog.component';
 
 @Component({
   selector: 'app-board-list',
@@ -30,5 +31,21 @@ export class BoardListComponent implements OnInit, OnDestroy {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
     this.boardService.sortBoards(this.boards);
+  }
+
+  openBoardDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '400px';
+    dialogConfig.data = {};
+
+    const dialogRef = this.dialog.open(BoardDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((title) => {
+      if (typeof title === 'string') {
+        const boardTitle: string = title;
+        const priority = this.boards.length;
+        this.boardService.createBoard(boardTitle, priority);
+      }
+    });
   }
 }
