@@ -1,9 +1,33 @@
-:host {
-  text-align: center;
-  padding: 24px;
-}
 mat-card {
-  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 35vw;
+  margin: 0.75rem auto;
   background-color: #212121;
-  margin: 0 auto 10px;
+}
+
+.card-main {
+  margin-top: 2rem;
+}
+
+.tech-title {
+  padding: 0.3rem;
+  font-size: 1.5rem;
+}
+
+.tech-image {
+  padding: 0.3rem;
+  max-width: 60%;
+  height: auto;
+}
+
+.tech-description {
+  text-align: justify;
+  padding: 0.3rem;
+}
+
+a {
+  margin: 0.25rem;
+  color: #36e9b6;
 }
