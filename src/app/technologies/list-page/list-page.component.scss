@@ -1,13 +1,23 @@
-:host {
+h1 {
+  margin: 1.5rem;
   text-align: center;
-  padding: 24px;
 }
+
 mat-nav-list {
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40vw;
+  margin: 0.75rem auto;
   background-color: #212121;
-  padding: 0;
-  margin: 0 auto;
 }
+
+.tech-logo,
+.tech-name {
+  align-self: center;
+  margin: auto 0.25rem;
+}
+
 mat-list-item {
   transition: transform 300ms ease;
   &:hover {
