@@ -1,13 +1,13 @@
-<h1>List Page</h1>
+<h1>Technologies</h1>
 
 <mat-nav-list role="list">
-  <h3 mat-subheader>Technologies</h3>
+  <h3 mat-subheader>Major web technologies used in this demo application</h3>
   <mat-list-item
     *ngFor="let tech of technologies | async"
     [routerLink]="tech.id"
     role="listitem"
   >
-    <mat-icon mat-list-icon>account_box</mat-icon>
-    <h3>{{ tech.name }}</h3>
+    <mat-icon class="tech-logo" mat-list-icon>developer_mode</mat-icon>
+    <h3 class="tech-name">{{ tech.name }}</h3>
   </mat-list-item>
 </mat-nav-list>
