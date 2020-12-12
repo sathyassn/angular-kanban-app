@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Board } from '../board.model';
 import { BoardService } from '../board.service';
 import { BoardDialogComponent } from '../dialogs/board-dialog/board-dialog.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-board-list',
@@ -16,11 +17,19 @@ export class BoardListComponent implements OnInit, OnDestroy {
   boards: Board[] = [];
   sub: Subscription = new Subscription();
 
-  constructor(private boardService: BoardService, private dialog: MatDialog) {}
+  constructor(
+    private boardService: BoardService,
+    private dialog: MatDialog,
+    private seo: SeoService
+  ) {}
 
   ngOnInit(): void {
     this.sub = this.boardService.getUserBoards().subscribe((boards) => {
       this.boards = boards;
+    });
+    this.seo.generateTags({
+      title: 'Boards',
+      description: 'Kanban boards of the user',
     });
   }
 
