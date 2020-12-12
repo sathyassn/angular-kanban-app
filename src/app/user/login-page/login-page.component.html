@@ -4,7 +4,10 @@
   </div>
 
   <div class="content" *ngIf="!(afAuth.authState | async)">
-    <button mat-raised-button appGoogleSignin>Login with Google</button>
+    <button mat-raised-button appGoogleSignin>
+      <img src="/assets/google-icon.svg" alt="Google Icon" />
+      Login with Google
+    </button>
   </div>
 
   <h5 class="content" *ngIf="!(afAuth.authState | async)">-- Or --</h5>
