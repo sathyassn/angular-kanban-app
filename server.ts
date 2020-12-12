@@ -37,8 +37,8 @@ export function app(): express.Express {
     })
   );
 
-  // // Below routes will not be server side rendered
-  // server.get('/kanban/**', (req, res) => {});
+  // Below routes will not be server side rendered
+  server.get('/kanban/**', (req, res) => {});
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
