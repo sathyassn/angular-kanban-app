@@ -24,14 +24,22 @@ export class SnackService {
   }
 
   updateVersion() {
-    this.snackBar.open('New app update available. Load new version?', 'OK', {
-      duration: 5000,
-    });
-
-    return this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
-      if (this.swUpdate.isEnabled) {
-        this.swUpdate.available.subscribe(() => window.location.reload());
-      }
-    });
+    console.log('Version Update checking...');
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        console.log('Software update available and opening snack bar...');
+        this.snackBar.open(
+          'New app update available. Load new version?',
+          'OK',
+          {
+            duration: 5000,
+          }
+        );
+        this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
+          console.log('User chose to update; reloading...');
+          window.location.reload();
+        });
+      });
+    }
   }
 }
