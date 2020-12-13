@@ -1,6 +1,6 @@
 {
-  "name": "kanban-app",
-  "short_name": "kanban-app",
+  "name": "Angular Kanban",
+  "short_name": "Kanban",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
