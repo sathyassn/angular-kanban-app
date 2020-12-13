@@ -30,7 +30,7 @@
   "dataGroups": [
     {
       "name": "technologies",
-      "urls": ["/technologies"],
+      "urls": ["/technologies/**"],
       "cacheConfig": {
         "strategy": "performance",
         "maxAge": "1d",
