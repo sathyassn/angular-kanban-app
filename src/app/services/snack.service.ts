@@ -28,15 +28,10 @@ export class SnackService {
       duration: 5000,
     });
 
-    return this.snackBar._openedSnackBarRef
-      ?.onAction()
-      .pipe(
-        tap(() => {
-          if (this.swUpdate.isEnabled) {
-            this.swUpdate.available.subscribe(() => window.location.reload());
-          }
-        })
-      )
-      .subscribe();
+    return this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
+      if (this.swUpdate.isEnabled) {
+        this.swUpdate.available.subscribe(() => window.location.reload());
+      }
+    });
   }
 }
