@@ -30,7 +30,6 @@ export class DetailPageComponent implements OnInit {
       .snapshotChanges()
       .pipe(
         map((snap) => {
-          console.log('Tech Snap', snap);
           return <Technology>{
             id: snap.payload.id,
             ...snap.payload.data(),

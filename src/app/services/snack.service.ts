@@ -24,10 +24,8 @@ export class SnackService {
   }
 
   updateVersion() {
-    console.log('Version Update checking...');
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(() => {
-        console.log('Software update available and opening snack bar...');
         this.snackBar.open(
           'New app update available. Load new version?',
           'OK',
@@ -36,7 +34,6 @@ export class SnackService {
           }
         );
         this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
-          console.log('User chose to update; reloading...');
           window.location.reload();
         });
       });
