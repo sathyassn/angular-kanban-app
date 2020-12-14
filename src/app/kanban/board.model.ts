@@ -1,5 +1,5 @@
 export class Board {
-  id?: string;
+  boardId: string = '';
   title: string = '';
   priority: number = NaN;
   tasks: Task[] = [];
