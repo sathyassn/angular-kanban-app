@@ -8,8 +8,9 @@
   </mat-card-header>
 
   <div
-    class="tasks"
+    class="board"
     cdkDropList
+    [cdkDropListData]="board"
     cdkDropListOrientation="vertical"
     (cdkDropListDropped)="taskDrop($event)"
   >

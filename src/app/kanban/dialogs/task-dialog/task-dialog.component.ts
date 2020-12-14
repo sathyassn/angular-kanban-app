@@ -19,8 +19,6 @@ export class TaskDialogComponent implements OnInit {
     private fb: FormBuilder,
     private boardService: BoardService
   ) {
-    console.log('TaskDialog-InputDataRecvd', data); // CONSOLE LOG
-
     this.form = this.fb.group({
       taskDescription: [data.task.description, [Validators.required]],
       label: [data.task.label, [Validators.required]],
@@ -28,10 +26,6 @@ export class TaskDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
 
   sendData() {
     const description: string = this.form.value.taskDescription;
@@ -46,12 +40,12 @@ export class TaskDialogComponent implements OnInit {
       boardId: this.data.boardId,
       taskIndex: this.data.taskIndex,
     };
-    console.log('TaskDialog-OutputDataSent', taskData); // CONSOLE LOG
     this.dialogRef.close(taskData);
   }
 
   deleteTask() {
     if (this.data.boardId) {
+      console.log('data remvoed', this.data.task);
       this.boardService.removeTask(this.data.boardId, this.data.task);
       this.dialogRef.close();
     }

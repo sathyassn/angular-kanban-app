@@ -1,4 +1,8 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { Component, Input } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
@@ -12,18 +16,40 @@ import { TaskDialogComponent } from '../dialogs/task-dialog/task-dialog.componen
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
-  @Input() board!: Board; // Non-Null Assertion Operator used!
+  @Input() board: Board = new Board();
+
+  taskMoved!: Task;
+  taskLength: number = NaN;
 
   constructor(private boardService: BoardService, private dialog: MatDialog) {}
 
-  async taskDrop(event: CdkDragDrop<string[]>) {
-    if (this.board?.id) {
+  taskDrop(event: CdkDragDrop<Board>) {
+    if (event.previousContainer === event.container) {
       moveItemInArray(
-        this.board.tasks,
+        event.container.data.tasks,
         event.previousIndex,
         event.currentIndex
       );
-      this.boardService.updateTasks(this.board.id, this.board.tasks);
+      this.boardService.updateTasks(
+        event.container.data.boardId,
+        event.container.data.tasks
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data.tasks,
+        event.container.data.tasks,
+        event.previousIndex,
+        event.currentIndex
+      );
+      this.boardService.updateTasks(
+        event.previousContainer.data.boardId,
+        event.previousContainer.data.tasks
+      );
+
+      this.boardService.updateTasks(
+        event.container.data.boardId,
+        event.container.data.tasks
+      );
     }
   }
 
@@ -35,37 +61,34 @@ export class BoardComponent {
       dialogConfig.data = {
         task: { ...task },
         isNew: false,
-        boardId: this.board.id,
+        boardId: this.board.boardId,
         taskIndex: taskIndex,
       };
-      console.log('BoardComponent-UpdateTask-DataSent', dialogConfig); // CONSOLE LOG
     } else {
       dialogConfig.data = { task: { label: 'purple' }, isNew: true };
-      console.log('BoardComponent-NewTask-DataSent', dialogConfig); // CONSOLE LOG
     }
 
     const dialogRef = this.dialog.open(TaskDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((taskData) => {
-      console.log('BoardComponent-DataReceivedBack', taskData); // CONSOLE LOG
       if (taskData) {
-        if (taskData.isNew && this.board.id) {
-          this.boardService.updateTasks(this.board.id, [
+        if (taskData.isNew && this.board.boardId) {
+          this.boardService.updateTasks(this.board.boardId, [
             ...this.board.tasks,
             taskData.task,
           ]);
-        } else if (this.board.id) {
+        } else if (this.board.boardId) {
           const update = this.board.tasks;
           update.splice(taskData.taskIndex, 1, taskData.task);
-          this.boardService.updateTasks(this.board.id, this.board.tasks);
+          this.boardService.updateTasks(this.board.boardId, this.board.tasks);
         }
       }
     });
   }
 
   deleteBoard() {
-    if (this.board.id) {
-      this.boardService.deleteBoard(this.board.id);
+    if (this.board.boardId) {
+      this.boardService.deleteBoard(this.board.boardId);
     }
   }
 }
