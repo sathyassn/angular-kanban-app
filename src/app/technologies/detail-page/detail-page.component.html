@@ -3,7 +3,12 @@
     <mat-card-title class="tech-title">{{ tech.name }}</mat-card-title>
     <!-- <mat-card-subtitle>Note on the tech</mat-card-subtitle> -->
   </mat-card-header>
-  <img class="tech-image" mat-card-image [src]="tech.image" [alt]="tech.name" />
+  <img
+    class="tech-image"
+    mat-card-image
+    [src]="'/assets/technologies/' + tech.image"
+    [alt]="tech.name"
+  />
   <mat-card-content>
     <p class="tech-description">{{ tech.description }}</p>
   </mat-card-content>

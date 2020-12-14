@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { SwUpdate } from '@angular/service-worker';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SnackService {
-  constructor(private snackBar: MatSnackBar, private route: Router) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private route: Router,
+    private swUpdate: SwUpdate
+  ) {}
 
   authError() {
     this.snackBar.open('You must be logged in!', 'OK', { duration: 5000 });
@@ -16,5 +21,25 @@ export class SnackService {
       ?.onAction()
       .pipe(tap(() => this.route.navigate(['/login'])))
       .subscribe();
+  }
+
+  updateVersion() {
+    console.log('Version Update checking...');
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        console.log('Software update available and opening snack bar...');
+        this.snackBar.open(
+          'New app update available. Load new version?',
+          'OK',
+          {
+            duration: 5000,
+          }
+        );
+        this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
+          console.log('User chose to update; reloading...');
+          window.location.reload();
+        });
+      });
+    }
   }
 }
