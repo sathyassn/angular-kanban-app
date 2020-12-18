@@ -41,7 +41,14 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="logo" routerLink="/">🔥 Angular Kanban</span>
+      <a class="app-logo" routerLink="/"
+        ><img
+          src="assets/kanban-icons/kanban-black-icon.svg"
+          alt="Kanban App"
+        />
+        <span class="app-name">Kanban</span>
+      </a>
+
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/kanban">🍱 Kanban Demo</a>

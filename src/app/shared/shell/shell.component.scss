@@ -1,31 +1,54 @@
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
 .sidenav-container {
   height: 100%;
 }
 
-.logo {
+.app-logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.app-logo img {
+  max-width: 1.6rem;
+  padding: 0 0.3rem 0 0.5rem;
+}
+
+.app-name {
   font-size: 1.2em;
   cursor: pointer;
   outline: none;
+  vertical-align: middle;
+  box-shadow: $box-shadow-nav;
+}
+
+.app-logo :focus {
+  outline: none;
+  color: map-get($colors, navBlack);
+  background-color: map-get($colors, navWhite);
 }
 
 .mat-drawer-side {
   border: none;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: $box-shadow-nav;
 }
 
 .sidenav {
   width: 200px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .sidenav .mat-toolbar {
   background: inherit;
 }
 
-.mat-toolbar.mat-primary {
+.mat-toolbar {
   position: sticky;
   top: 0;
   z-index: 1;
+  box-shadow: $box-shadow-nav;
 }
 
 .fill-space {
