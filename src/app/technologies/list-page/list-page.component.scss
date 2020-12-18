@@ -1,15 +1,61 @@
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// List max-width at different break points
+@mixin list-width {
+  @include max-bpoint($max-bpoint-grid) {
+    max-width: 60vw;
+  }
+  @include max-bpoint($max-bpoint01) {
+    max-width: 70vw;
+  }
+  @include max-bpoint($max-bpoint02) {
+    max-width: 80vw;
+  }
+  @include max-bpoint($max-bpoint03) {
+    max-width: 85vw;
+  }
+  @include max-bpoint($max-bpoint04) {
+    max-width: 95vw;
+  }
+}
+
+// h3 font size at different break points
+@mixin sub-header {
+  @include max-bpoint($max-bpoint01) {
+    font-size: 0.85rem;
+  }
+  @include max-bpoint($max-bpoint02) {
+    font-size: 0.8rem;
+  }
+  @include max-bpoint($max-bpoint03) {
+    font-size: 0.8rem;
+  }
+  @include max-bpoint($max-bpoint03) {
+    font-size: 0.75rem;
+  }
+}
+
 h1 {
   margin: 1.5rem;
   text-align: center;
 }
 
-mat-nav-list {
+.tech-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40vw;
+  max-width: 45vw;
   margin: 0.75rem auto;
-  background-color: #212121;
+  background-color: map-get($colors, drkBack);
+  border-radius: 10px;
+
+  .mat-subheader {
+    font-size: 0.9rem;
+    @include sub-header();
+  }
+
+  @include list-width();
 }
 
 .tech-logo,
@@ -23,5 +69,4 @@ mat-list-item {
   &:hover {
     transform: translateY(-3px);
   }
-  transition: transform 300ms ease;
 }
