@@ -1,22 +1,23 @@
-<main>
-  <div class="content" *ngIf="!(afAuth.authState | async)">
+<main class="container">
+  <div class="content__title" *ngIf="!(afAuth.authState | async)">
     <h1>Login</h1>
   </div>
 
-  <div class="content" *ngIf="!(afAuth.authState | async)">
+  <div class="content__login--google" *ngIf="!(afAuth.authState | async)">
     <button mat-raised-button appGoogleSignin>
       <img src="/assets/google-icon.svg" alt="Google Icon" />
       Login with Google
     </button>
   </div>
 
-  <h5 class="content" *ngIf="!(afAuth.authState | async)">-- Or --</h5>
+  <div class="content__login--email">
+    <p *ngIf="!(afAuth.authState | async)">-- Or --</p>
+    <app-email-login *ngIf="!(afAuth.authState | async)"></app-email-login>
+  </div>
 
-  <app-email-login *ngIf="!(afAuth.authState | async)"></app-email-login>
-
-  <div class="content" *ngIf="afAuth.authState | async as user">
+  <div class="content__loggedin" *ngIf="afAuth.authState | async as user">
     <p mat-subheader>
-      Logged in as <strong>{{ user?.email }}</strong>
+      Logged in as &nbsp;<strong>{{ user?.email }}</strong>
     </p>
   </div>
 </main>
