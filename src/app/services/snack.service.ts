@@ -15,7 +15,7 @@ export class SnackService {
   ) {}
 
   authError() {
-    this.snackBar.open('You must be logged in!', 'OK', { duration: 5000 });
+    this.snackBar.open('You must be logged in!', 'OK', { duration: 3000 });
 
     return this.snackBar._openedSnackBarRef
       ?.onAction()
@@ -30,7 +30,7 @@ export class SnackService {
           'New app update available. Load new version?',
           'OK',
           {
-            duration: 5000,
+            duration: 3000,
           }
         );
         this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
