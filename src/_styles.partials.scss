@@ -1,0 +1,34 @@
+// Fonts
+@mixin code-font($size) {
+  font-size: $size;
+  font-family: "Oxygen Mono", monospace;
+}
+
+// Box Shadows
+$box-shadow: 0 5px 15px 0 rgba(230, 218, 218, 0.15);
+$box-shadow-nav: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
+
+// Colors
+$colors: (
+  appGreen: rgb(54, 233, 182),
+  drkGrey: #444444,
+  offWhite: #f0f0f0,
+  textWhite: #d3d3d3,
+  drkBack: #212121,
+  navBlack: #141414,
+  navWhite: #cfcfcf,
+);
+
+// max-width breakpoints
+$max-bpoint-grid: 970px;
+$max-bpoint01: 845px;
+$max-bpoint02: 775px;
+$max-bpoint03: 600px;
+$max-bpoint04: 430px;
+
+// Breakpoint mixins
+@mixin max-bpoint($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
