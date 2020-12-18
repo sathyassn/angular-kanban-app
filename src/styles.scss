@@ -45,10 +45,10 @@ $my-app-theme: mat-light-theme(
 @include mat-core();
 
 // Custom Typography
-// $custom-typography: mat-typography-config(
-//   $font-family: 'Nunito Sans'
-// );
-// @include angular-material-typography($custom-typography);
+$custom-typography: mat-typography-config(
+  $font-family: '"Poppins", sans-serif, "Oxygen Mono", monospace',
+);
+@include angular-material-typography($custom-typography);
 
 // Custom Color Palettes
 // Custom Primary Color Palette
@@ -118,22 +118,13 @@ $my-app-theme: mat-dark-theme(
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgba(0, 0, 0, 0.8);
+  font-family: "Poppins", sans-serif, "Oxygen Mono", monospace;
+  ::selection {
+    background-color: rgba(53, 233, 182, 0.5);
+  }
 }
 a {
   color: white;
   text-decoration: none;
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
