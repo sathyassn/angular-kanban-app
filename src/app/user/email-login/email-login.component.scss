@@ -1,35 +1,46 @@
-.server-error {
-  // color: rgba(243, 83, 83, 0.8);
-  text-align: center;
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// Email login form-width at different break points
+@mixin form-width {
+  @include max-bpoint($max-bpoint-grid) {
+    min-width: 40vw;
+  }
+  @include max-bpoint($max-bpoint01) {
+    min-width: 45vw;
+  }
+  @include max-bpoint($max-bpoint02) {
+    min-width: 50vw;
+  }
+  @include max-bpoint($max-bpoint03) {
+    min-width: 60vw;
+  }
+  @include max-bpoint($max-bpoint04) {
+    min-width: 80vw;
+  }
 }
 
-mat-card {
+.container {
   display: flex;
   flex-direction: column;
-  min-width: 20vw;
-  max-width: 30vw;
-  margin: 0 auto;
-  border-radius: 1%;
-}
+  align-items: center;
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+  .content__auth--choice,
+  .content__auth--form {
+    min-width: 32vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-mat-form-field {
-  margin: 0.3rem;
-}
+    .form-field {
+      width: 100%;
+      margin: 0 auto;
+    }
 
-mat-error {
-  margin: 0.15rem;
-}
+    @include form-width();
+  }
 
-.content-center {
-  text-align: center;
-}
-
-.btn-submit {
-  margin: 0.3rem auto;
-  width: 50%;
+  .server-error {
+    text-align: center;
+  }
 }
