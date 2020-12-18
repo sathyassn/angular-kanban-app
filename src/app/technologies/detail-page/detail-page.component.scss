@@ -1,10 +1,34 @@
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// Detail page max-width at different break points
+@mixin detail-width {
+  @include max-bpoint($max-bpoint-grid) {
+    max-width: 60vw;
+  }
+  @include max-bpoint($max-bpoint01) {
+    max-width: 70vw;
+  }
+  @include max-bpoint($max-bpoint02) {
+    max-width: 80vw;
+  }
+  @include max-bpoint($max-bpoint03) {
+    max-width: 85vw;
+  }
+  @include max-bpoint($max-bpoint04) {
+    max-width: 95vw;
+  }
+}
+
 mat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40vw;
+  max-width: 45vw;
   margin: 0.75rem auto;
-  background-color: #212121;
+  background-color: map-get($colors, drkBack);
+
+  @include detail-width();
 }
 
 .card-main {
@@ -13,22 +37,30 @@ mat-card {
 
 .tech-title {
   margin-top: 1rem;
-  padding: 0.3rem;
+  padding: 1rem;
   font-size: 1.5rem;
 }
 
 .tech-image {
   padding: 0.3rem;
-  max-width: 60%;
+  max-width: 45%;
   height: auto;
 }
 
 .tech-description {
   text-align: justify;
   padding: 0.3rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.025rem;
+  line-height: 1.7rem;
+  color: map-get($colors, textWhite);
 }
 
 a {
   margin: 0.5rem;
-  color: #36e9b6;
+  color: map-get($colors, appGreen);
+}
+
+.card-sub {
+  color: map-get($colors, textWhite);
 }
