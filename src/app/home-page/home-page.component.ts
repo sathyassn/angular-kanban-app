@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
     this.seo.generateTags({
       title: 'Home',
       description:
-        'Angular Kanban App built using Angular, Firebase, NodeJS, Google Cloud',
+        'Kanban App built using Angular, Firebase, NodeJS, Google Cloud',
     });
   }
 }

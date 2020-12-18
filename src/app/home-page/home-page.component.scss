@@ -1,4 +1,185 @@
-h2 {
-  margin-top: 2rem;
-  text-align: center;
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// home-page scss variables & functions
+
+// container margin at different max-width breakpoints for homepage
+@mixin container-margin {
+  @include max-bpoint($max-bpoint01) {
+    margin: 2rem 8rem 1rem 10rem;
+  }
+  @include max-bpoint($max-bpoint02) {
+    margin: 2rem 3rem 1rem 5rem;
+  }
+  @include max-bpoint($max-bpoint03) {
+    margin: 1rem 1rem 2rem 2rem;
+  }
+}
+
+// margin-top at different max-width breakpoints
+@mixin margin-top() {
+  @include max-bpoint($max-bpoint01) {
+    margin-top: 1rem;
+  }
+  @include max-bpoint($max-bpoint02) {
+    margin-top: 0.75rem;
+  }
+  @include max-bpoint($max-bpoint03) {
+    margin-top: 0.5rem;
+  }
+  @include max-bpoint($max-bpoint04) {
+    margin-top: 0.25rem;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 55% 40%;
+  grid-template-rows:
+    minmax(5vh, 15vh)
+    minmax(10vh, 15vh)
+    minmax(40vh, 50vh)
+    max(3vh);
+  grid-template-areas:
+    "title image"
+    "subject image"
+    "details image"
+    "footer footer";
+  column-gap: 0.25rem;
+  row-gap: 0.25rem;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 1rem 3rem 1rem 4rem;
+
+  @media (max-width: $max-bpoint-grid) {
+    grid-template-columns: 95%;
+    grid-template-rows:
+      minmax(5vh, 15vh)
+      minmax(10vh, 15vh)
+      minmax(40vh, 50vh)
+      minmax(40vh, 50vh)
+      max(2vh);
+    grid-template-areas:
+      "title"
+      "subject"
+      "image"
+      "details"
+      "footer";
+
+    margin: 2rem 8rem 1rem 14rem;
+  }
+
+  @include container-margin();
+
+  .content__title {
+    margin-top: 1rem;
+    grid-area: title;
+    justify-self: start;
+
+    @include margin-top();
+
+    h1 {
+      @include code-font(3.5rem);
+      @media (max-width: $max-bpoint01) {
+        @include code-font(2.5rem);
+      }
+      @media (max-width: $max-bpoint04) {
+        @include code-font(1.5rem);
+      }
+    }
+  }
+
+  .content__subject {
+    margin-top: 2rem;
+    grid-area: subject;
+    justify-self: start;
+
+    @include margin-top();
+
+    h2 {
+      @include code-font(1.2rem);
+
+      @media (max-width: $max-bpoint03) {
+        @include code-font(1rem);
+      }
+      @media (max-width: $max-bpoint04) {
+        @include code-font(0.8rem);
+      }
+    }
+  }
+
+  .content__details {
+    margin-top: 2rem;
+    grid-area: details;
+    justify-self: start;
+
+    @include margin-top();
+
+    p {
+      @include code-font(1rem);
+      @media (max-width: $max-bpoint01) {
+        @include code-font(0.9rem);
+      }
+      @media (max-width: $max-bpoint04) {
+        @include code-font(0.85rem);
+      }
+    }
+
+    .btn-effect {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      margin: auto;
+      background-color: map-get($colors, appGreen);
+      color: map-get($colors, drkGrey);
+
+      &:focus,
+      &:hover {
+        background-color: map-get($colors, offWhite);
+        color: map-get($colors, drkGrey);
+      }
+    }
+  }
+
+  .content__image {
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+    img {
+      width: 100%;
+      min-width: 400px;
+      max-width: 550px;
+      border-radius: 10px;
+      box-shadow: $box-shadow;
+
+      @media (max-width: $max-bpoint-grid) {
+        width: 75%;
+        min-width: 400px;
+        max-width: 550px;
+      }
+      @media (max-width: $max-bpoint04) {
+        width: 80%;
+        max-width: 400px;
+      }
+    }
+  }
+
+  .footer {
+    grid-area: footer;
+    align-self: center;
+  }
+
+  .content__highlight {
+    color: map-get($colors, appGreen);
+  }
+
+  .content__details--tab1 {
+    margin-left: 1rem;
+  }
+
+  .content__details--tab2 {
+    margin-left: 2rem;
+  }
 }
