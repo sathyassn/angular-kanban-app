@@ -1,106 +1,71 @@
 // SCSS styles partial import
 @import "src/_styles.partials.scss";
 
-// container margin at different max-width breakpoints for homepage
-@mixin container-margin {
-  @include max-bpoint($max-bpoint01) {
-    margin: 2rem 4rem 1rem 4rem;
-  }
-  @include max-bpoint($max-bpoint02) {
-    margin: 1.5rem 2rem 1rem 2rem;
-  }
-  @include max-bpoint($max-bpoint03) {
-    margin: 1.5rem 1rem 0.5rem 1rem;
-  }
-  @include max-bpoint($max-bpoint04) {
-    margin: 1rem 0.25rem 0.25rem 0.25rem;
-  }
-}
-
-// margin-top at different max-width breakpoints
-@mixin margin-top() {
-  @include max-bpoint($max-bpoint01) {
-    margin-top: 1rem;
-  }
-  @include max-bpoint($max-bpoint02) {
-    margin-top: 0.75rem;
-  }
-  @include max-bpoint($max-bpoint03) {
-    margin-top: 0.5rem;
-  }
-  @include max-bpoint($max-bpoint04) {
-    margin-top: 0.25rem;
-  }
-}
-
 .container {
+  width: 94%;
+  margin: 3% auto;
+}
+
+.container__auth {
   display: grid;
-  grid-template-columns: 95%;
-  grid-template-rows:
-    minmax(3vh, 5vh)
-    minmax(5vh, 7vh)
-    minmax(55vh, 65vh)
-    max(3vh);
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
 
   grid-template-areas:
     "title"
     "google"
     "email"
     "footer";
-  column-gap: 0.25rem;
-  row-gap: 0.25rem;
 
   align-items: center;
   justify-content: center;
+  align-content: center;
 
-  margin: 2rem auto 1rem;
+  column-gap: 0.5%;
+  row-gap: 0.5%;
+}
 
-  @include container-margin();
+.content__auth--title {
+  grid-area: title;
+  justify-self: center;
+  width: fit-content;
+  margin: 1% auto;
+}
 
-  .content__title {
-    margin-top: 1rem;
-    grid-area: title;
-    justify-self: center;
-    align-self: center;
+.content__auth--google {
+  grid-area: google;
+  justify-self: center;
+  width: fit-content;
+  margin: 1% auto;
+}
 
-    @include margin-top();
-  }
+.content__auth--google img {
+  max-width: 20px;
+  padding: 0.2rem;
+}
+.content__auth--google h1 {
+  margin-top: 2%;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
-  .content__login--google {
-    margin-top: 1rem;
-    grid-area: google;
-    justify-self: center;
-    align-self: center;
-    img {
-      max-width: 20px;
-      padding: 0.2rem;
-    }
+.content__auth--email {
+  grid-area: email;
+  justify-self: center;
+  width: fit-content;
+  margin: 1% auto;
+}
 
-    @include margin-top();
-  }
+.content__auth--loggedin {
+  grid-area: title;
+  justify-self: center;
+  width: fit-content;
+  margin: 1% auto;
+}
 
-  .content__login--email {
-    width: 100%;
-    margin-top: 1rem;
-    grid-area: email;
-    justify-self: center;
-    align-self: center;
-
-    p {
-      padding: 1rem;
-      text-align: center;
-    }
-
-    @include margin-top();
-  }
-
-  .content__loggedin {
-    grid-area: title;
-    justify-self: center;
-  }
-
-  .footer {
-    grid-area: footer;
-    align-self: center;
-  }
+.footer {
+  grid-area: footer;
+  justify-self: center;
+  width: fit-content;
+  margin: 2% auto;
 }

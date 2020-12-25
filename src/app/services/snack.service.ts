@@ -30,7 +30,7 @@ export class SnackService {
           'New app update available. Load new version?',
           'OK',
           {
-            duration: 3000,
+            duration: 5000,
           }
         );
         this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {

@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],
 })
-export class ShellComponent {
+export class ShellComponent implements AfterViewInit, OnDestroy {
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(['(max-width: 700px)'])
     .pipe(
@@ -21,6 +21,8 @@ export class ShellComponent {
 
   @ViewChild('drawer')
   sideNav?: MatSidenav;
+
+  sideNavAutoClose!: Subscription;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -32,5 +34,17 @@ export class ShellComponent {
     this.afAuth.signOut();
     this.router.navigateByUrl('/login');
     this.sideNav?.close();
+  }
+
+  ngAfterViewInit() {
+    this.sideNavAutoClose = this.isHandset$.subscribe((val) => {
+      if (!val) {
+        this.sideNav?.close();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.sideNavAutoClose.unsubscribe();
   }
 }

@@ -1,38 +1,60 @@
-.boards {
-  width: auto;
-  padding: 24px;
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
-  }
-  &::-webkit-scrollbar-track {
-    //    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #000;
-  }
-  &::-webkit-scrollbar {
-    width: 3px;
-    background-color: #000;
-  }
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #f5f5f5;
-    border: 2px solid #555555;
+// Variables and functions used in this style sheet
+$min-bpoint01: 700px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+.boards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 4% auto 2%;
+  align-items: center;
+
+  @include min-width($min-bpoint01) {
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: scroll;
+    padding: 1% 3%;
+    padding-bottom: 5%;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+      background-color: #000;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #000;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #f5f5f5;
+      border: 2px solid #555555;
+    }
   }
 
   .handle {
     position: relative;
-    top: 5px;
-    left: 0;
+    top: 2px;
+    left: 8rem;
     cursor: move;
   }
 }
 
+.list-board {
+  margin: 1%;
+  padding: 1.5%;
+}
+
 .cdk-drag-placeholder {
   opacity: 0.2;
-  width: 350px;
+  width: 22rem;
   border: 5px dashed gray;
   margin: 0 10px;
 }
@@ -49,6 +71,6 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 1.5rem;
-  z-index: 10;
+  margin: 2%;
+  z-index: 3;
 }

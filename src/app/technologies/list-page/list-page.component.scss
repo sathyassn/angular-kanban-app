@@ -1,72 +1,94 @@
 // SCSS styles partial import
 @import "src/_styles.partials.scss";
 
-// List max-width at different break points
-@mixin list-width {
-  @include max-bpoint($max-bpoint-grid) {
-    max-width: 60vw;
-  }
-  @include max-bpoint($max-bpoint01) {
-    max-width: 70vw;
-  }
-  @include max-bpoint($max-bpoint02) {
-    max-width: 80vw;
-  }
-  @include max-bpoint($max-bpoint03) {
-    max-width: 85vw;
-  }
-  @include max-bpoint($max-bpoint04) {
-    max-width: 95vw;
+// list-page scss variables & functions
+$min-bpoint01: 600px;
+$min-bpoint02: 896px;
+$min-bpoint03: 2000px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
   }
 }
 
-// h3 font size at different break points
-@mixin sub-header {
-  @include max-bpoint($max-bpoint01) {
-    font-size: 0.85rem;
-  }
-  @include max-bpoint($max-bpoint02) {
-    font-size: 0.8rem;
-  }
-  @include max-bpoint($max-bpoint03) {
-    font-size: 0.8rem;
-  }
-  @include max-bpoint($max-bpoint03) {
-    font-size: 0.75rem;
-  }
+.container {
+  width: 94%;
+  margin: 2% auto;
 }
 
-h1 {
-  margin: 1.5rem;
-  text-align: center;
-}
-
-.tech-list {
-  display: flex;
-  flex-direction: column;
+.container__list {
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  grid-template-areas:
+    "title"
+    "list"
+    "footer";
   align-items: center;
-  max-width: 45vw;
-  margin: 0.75rem auto;
-  background-color: map-get($colors, drkBack);
+  justify-content: center;
+  align-content: center;
+  column-gap: 0.5%;
+  row-gap: 0.5%;
+}
+
+.container__list--title {
+  grid-area: title;
+  justify-self: center;
+  width: fit-content;
+  margin: 4% auto;
+}
+
+.container__list--tech {
+  grid-area: list;
+  justify-self: center;
+  width: fit-content;
+  margin: 2% auto;
+
+  background-color: map-get($feature-colors, background-list);
   border-radius: 10px;
+}
+.container__list--tech .mat-subheader {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
 
-  .mat-subheader {
+  @include min-width($min-bpoint01) {
     font-size: 0.9rem;
-    @include sub-header();
   }
-
-  @include list-width();
+  @include min-width($min-bpoint02) {
+    font-size: 1rem;
+  }
+  @include min-width($min-bpoint03) {
+    font-size: 1.1rem;
+  }
 }
 
-.tech-logo,
-.tech-name {
-  align-self: center;
-  margin: auto 0.25rem;
+.list__tech--link {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 2%;
 }
 
-mat-list-item {
+.list__tech--link:focus,
+.list__tech--link:hover {
+  outline: none;
+  background-color: map-get($feature-colors, link-background);
   transition: transform 300ms ease;
-  &:hover {
-    transform: translateY(-3px);
-  }
+  transform: translateY(-3px);
+  box-shadow: map-get($box-shadows, main);
+}
+
+.list__tech--logo,
+.list__tech--name {
+  align-self: center;
+  margin: 2% 0;
+}
+
+a .mat-icon {
+  margin: 0 2%;
+}
+
+.footer {
+  grid-area: footer;
+  margin: 5% auto;
 }

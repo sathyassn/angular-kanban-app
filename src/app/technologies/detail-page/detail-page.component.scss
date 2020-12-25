@@ -1,22 +1,16 @@
 // SCSS styles partial import
 @import "src/_styles.partials.scss";
 
-// Detail page max-width at different break points
-@mixin detail-width {
-  @include max-bpoint($max-bpoint-grid) {
-    max-width: 60vw;
-  }
-  @include max-bpoint($max-bpoint01) {
-    max-width: 70vw;
-  }
-  @include max-bpoint($max-bpoint02) {
-    max-width: 80vw;
-  }
-  @include max-bpoint($max-bpoint03) {
-    max-width: 85vw;
-  }
-  @include max-bpoint($max-bpoint04) {
-    max-width: 95vw;
+// detail-page scss variables & functions
+$min-bpoint01: 425px;
+$min-bpoint02: 600px;
+$min-bpoint03: 896px;
+$min-bpoint04: 1232px;
+$min-bpoint05: 2000px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
   }
 }
 
@@ -24,43 +18,60 @@ mat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 45vw;
-  margin: 0.75rem auto;
-  background-color: map-get($colors, drkBack);
+  max-width: 90vw;
+  margin: 2% auto;
+  background-color: map-get($feature-colors, background-detail);
+  border-radius: 10px;
 
-  @include detail-width();
+  @include min-width($min-bpoint01) {
+    max-width: 80vw;
+  }
+  @include min-width($min-bpoint02) {
+    max-width: 70vw;
+  }
+  @include min-width($min-bpoint03) {
+    max-width: 60vw;
+  }
+  @include min-width($min-bpoint04) {
+    max-width: 50vw;
+  }
+  @include min-width($min-bpoint05) {
+    max-width: 40vw;
+  }
 }
 
-.card-main {
-  margin-top: 2rem;
+.container__card--main {
+  margin-top: 4%;
 }
 
-.tech-title {
-  margin-top: 1rem;
-  padding: 1rem;
+.main__header-title {
+  margin-top: 3%;
+  padding: 1%;
   font-size: 1.5rem;
+  white-space: nowrap;
 }
 
-.tech-image {
+.card__main--image {
+  margin-top: 1%;
   padding: 0.3rem;
   max-width: 45%;
   height: auto;
 }
 
-.tech-description {
+.main__content--description {
   text-align: justify;
-  padding: 0.3rem;
+  padding: 2%;
   font-size: 0.95rem;
   letter-spacing: 0.025rem;
   line-height: 1.7rem;
-  color: map-get($colors, textWhite);
+  color: map-get($feature-colors, text-description);
 }
 
-a {
-  margin: 0.5rem;
-  color: map-get($colors, appGreen);
+.container__card--sub a {
+  margin: 2%;
+  color: map-get($feature-colors, text-card);
 }
 
-.card-sub {
-  color: map-get($colors, textWhite);
+.container__card--sub {
+  color: map-get($feature-colors, text-description);
 }

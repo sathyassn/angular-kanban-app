@@ -1,46 +1,97 @@
 // SCSS styles partial import
 @import "src/_styles.partials.scss";
 
-// Email login form-width at different break points
-@mixin form-width {
-  @include max-bpoint($max-bpoint-grid) {
-    min-width: 40vw;
-  }
-  @include max-bpoint($max-bpoint01) {
-    min-width: 45vw;
-  }
-  @include max-bpoint($max-bpoint02) {
-    min-width: 50vw;
-  }
-  @include max-bpoint($max-bpoint03) {
-    min-width: 60vw;
-  }
-  @include max-bpoint($max-bpoint04) {
-    min-width: 80vw;
+// email-page scss variables & functions
+$min-bpoint01: 375px;
+$min-bpoint02: 572px;
+$min-bpoint03: 896px;
+$min-bpoint04: 1232px;
+$min-bpoint05: 2000px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
   }
 }
 
 .container {
+  width: 94%;
+  margin: 1% auto;
+}
+
+.content__auth {
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+
+  grid-template-areas:
+    "choice"
+    "form"
+    "submit"
+    "footer";
+
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  column-gap: 0.5%;
+  row-gap: 0.5%;
+}
+
+.content__auth--choice {
+  grid-area: choice;
+  justify-self: center;
+  width: fit-content;
+  margin: 2% auto;
+}
+
+.content__auth--form {
+  grid-area: form;
+  justify-self: center;
+  width: 90vw;
+  padding: 1%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .content__auth--choice,
-  .content__auth--form {
-    min-width: 32vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .form-field {
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    @include form-width();
+  @include min-width($min-bpoint01) {
+    width: 75vw;
   }
-
-  .server-error {
-    text-align: center;
+  @include min-width($min-bpoint02) {
+    width: 60vw;
   }
+  @include min-width($min-bpoint03) {
+    width: 50vw;
+  }
+  @include min-width($min-bpoint04) {
+    width: 40vw;
+  }
+  @include min-width($min-bpoint05) {
+    width: 30vw;
+  }
+}
+
+.form-field {
+  width: 96%;
+  margin: 1% auto;
+}
+
+.content__auth--submit {
+  grid-area: submit;
+  justify-self: center;
+  align-self: center;
+  width: fit-content;
+  margin: 1% auto;
+}
+
+.server-error {
+  text-align: center;
+}
+
+.footer {
+  grid-area: footer;
+  justify-self: center;
+  width: fit-content;
+  margin: 1% auto;
 }

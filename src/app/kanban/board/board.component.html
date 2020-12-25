@@ -1,4 +1,4 @@
-<mat-card class="outer-card">
+<mat-card aria-label="kanban board" class="outer-card">
   <mat-card-header>
     <!-- slot for the handle -->
     <ng-content></ng-content>
@@ -20,15 +20,26 @@
       *ngFor="let task of board.tasks; let i = index"
       (click)="openTaskDialog(task, i)"
     >
-      <mat-card class="task-description" [ngClass]="task.label">{{
-        task.description
-      }}</mat-card>
+      <mat-card
+        aria-label="board task item"
+        class="task-description"
+        [ngClass]="task.label"
+        >{{ task.description }}</mat-card
+      >
     </div>
   </div>
 
-  <button mat-stroked-button (click)="openTaskDialog()">
+  <button
+    aria-label="add task button"
+    class="btn-add"
+    mat-stroked-button
+    (click)="openTaskDialog()"
+  >
     <mat-icon>add</mat-icon>
   </button>
 
-  <app-delete-button (delete)="deleteBoard()"></app-delete-button>
+  <app-delete-button
+    class="btn-delete"
+    (delete)="deleteBoard()"
+  ></app-delete-button>
 </mat-card>

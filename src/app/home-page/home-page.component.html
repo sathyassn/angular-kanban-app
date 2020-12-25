@@ -1,52 +1,19 @@
-<div class="container">
-  <div class="content__title">
+<div class="container__home">
+  <div class="content__heading--title">
     <h1>hello<span class="content__highlight">;</span></h1>
   </div>
 
-  <div class="content__subject">
-    <h2>
-      <span class="content__highlight">/*</span> <br />
-      <span class="content__details--tab1"> welcome to play with </span><br />
-      <span class="content__details--tab2"
-        >the <span class="content__highlight">kanban</span> progressive web app
-        demo...</span
-      ><br />
-      <span class="content__highlight">*/</span>
+  <div class="content__heading--subject">
+    <p class="content__highlight">/*</p>
+    <P class="line-break"></P>
+    <h2 class="content__tab1">
+      welcome to play with the
+      <span class="content__highlight">kanban</span>
+      progressive web app demo...
     </h2>
-  </div>
-
-  <div class="content__details">
-    <p></p>
-    <p class="content__details--tab1">"app-made-with":</p>
-    <p class="content__details--tab2 content__highlight">{{ "{" }}</p>
-    <br />
-    <p class="content__details--tab2">"front-end" &nbsp;: "Angular",</p>
-    <p class="content__details--tab2">
-      "backend" &nbsp;&nbsp;&nbsp;: "node.js",
-    </p>
-    <p class="content__details--tab2">
-      "database" &nbsp;&nbsp;: "firebase-firestore",
-    </p>
-    <p class="content__details--tab2">
-      "hosting" &nbsp;&nbsp;&nbsp;: "google cloud",
-    </p>
-    <br />
-    <p class="content__details--tab2">
-      "made by" &nbsp;&nbsp;&nbsp;:&nbsp;<span class="content__highlight"
-        >"sathya n subbaraj"</span
-      >
-    </p>
-    <br />
-    <p class="content__details--tab2 content__highlight">{{ "}" }}</p>
-    <a
-      mat-stroked-button
-      tabindex="0"
-      role="button"
-      class="btn-effect"
-      href="https://github.com/sathyassn/angular-kanban-app"
-      target="blank"
-      >source</a
-    >
+    <P class="line-break"></P>
+    <p class="content__highlight">*/</p>
+    <P class="line-break"></P>
   </div>
 
   <div class="content__image">
@@ -55,5 +22,40 @@
       alt="Kanban board image"
     />
   </div>
+
+  <div class="content__details--items">
+    <P class="line-break"></P>
+    <p class="content__tab1">"app-made-with":</p>
+    <p class="content__tab2 content__highlight">
+      {{ "{" }}
+    </p>
+    <P class="line-break"></P>
+    <p class="content__tab2">"front-end" &nbsp;: "angular",</p>
+    <p class="content__tab2">"backend" &nbsp;&nbsp;&nbsp;: "node.js",</p>
+    <p class="content__tab2">"database" &nbsp;&nbsp;: "firebase",</p>
+    <p class="content__tab2">"hosting" &nbsp;&nbsp;&nbsp;: "google cloud",</p>
+    <p class="content__tab2" id="details__items--name">
+      "made by" &nbsp;&nbsp;&nbsp;:&nbsp;<span class="content__highlight"
+        >"sathya n subbaraj"</span
+      >
+    </p>
+    <P class="line-break"></P>
+    <p class="content__tab2 content__highlight">
+      {{ "}" }}
+    </p>
+  </div>
+  <div class="content__details--source">
+    <a
+      mat-stroked-button
+      tabindex="0"
+      role="button"
+      aria-label="github link to the source code of this project"
+      class="btn-source"
+      href="https://github.com/sathyassn/angular-kanban-app"
+      target="blank"
+      >source</a
+    >
+  </div>
+
   <div class="footer"></div>
 </div>

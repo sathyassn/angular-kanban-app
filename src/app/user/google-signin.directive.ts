@@ -1,6 +1,7 @@
 import { Directive, HostListener } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import firebase from 'firebase';
+// import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 @Directive({
   selector: '[appGoogleSignin]',
