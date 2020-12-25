@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "angularfire-my-app",
     "public": "dist/browser",
     "ignore": [
       "firebase.json",
