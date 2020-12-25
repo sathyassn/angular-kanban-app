@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { A11yModule } from '@angular/cdk/a11y';
 // import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material/CDK modules
@@ -35,6 +36,7 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
+  A11yModule,
 ];
 
 @NgModule({

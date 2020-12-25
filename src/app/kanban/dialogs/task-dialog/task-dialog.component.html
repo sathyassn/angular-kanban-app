@@ -14,7 +14,7 @@
     </mat-form-field>
     <br />
 
-    <mat-button-toggle-group formControlName="label">
+    <mat-button-toggle-group class="btn-colors" formControlName="label">
       <mat-button-toggle *ngFor="let label of labelOptions" [value]="label">
         <mat-icon [ngClass]="label"
           >{{ label === "gray" ? "check_circle" : "lens" }}

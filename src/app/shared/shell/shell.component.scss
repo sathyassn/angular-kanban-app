@@ -1,59 +1,126 @@
-.sidenav-container {
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// Variables and functions used in this style sheet
+$laptop-large: 1440px;
+$device-4K: 2560px;
+
+.container__sidenav {
+  width: 100%;
   height: 100%;
+  margin: 0 auto;
+  // Media queries for different screen sizes
+  @media screen and (min-width: $laptop-large) {
+    width: 80%;
+  }
+  @media screen and (min-width: $device-4K) {
+    width: 70%;
+  }
 }
 
-.logo {
-  font-size: 1.2em;
-  cursor: pointer;
-  outline: none;
+.navbar__side {
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
 }
 
-.mat-drawer-side {
-  border: none;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
-}
-
-.sidenav {
-  width: 200px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
+.mat-toolbar {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
+  box-shadow: map-get($box-shadows, nav);
 }
 
-.fill-space {
-  flex: 1 1 auto;
+.navbar__side--menu {
+  background-color: inherit;
 }
 
-i {
-  font-style: normal;
-  font-size: 1.25em;
-  margin-right: 16px;
+.navbar__side--active {
+  background-color: map-get($feature-colors, side-nav-active);
 }
 
-.avatar {
-  width: 1.75em;
-  border-radius: 50%;
-  margin: 0 10px 5px;
+.navbar__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "nav-btn brand main-nav";
+
+  @media screen and (min-width: 700px) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "brand main-nav";
+  }
 }
 
-.overflow-menu {
+.navbar__main--btn {
+  grid-area: nav-btn;
+  justify-self: left;
+
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
+}
+
+.navbar__main--brand {
+  grid-area: brand;
+  justify-self: center;
+  cursor: pointer;
+
+  @media screen and (min-width: 700px) {
+    justify-self: left;
+  }
+}
+
+a img {
+  max-width: 1.7rem;
+}
+
+::ng-deep .navbar__main--brand a.mat-button {
+  padding-right: 2.5rem;
+}
+
+.navbar__main--name {
+  font-size: 1.2rem;
+  outline: none;
+  vertical-align: middle;
+}
+
+.navbar__main--menu {
+  grid-area: main-nav;
+  justify-self: end;
+
+  @media screen and (min-width: 700px) {
+    justify-self: right;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.menu__items--link {
+  margin: 0 0.25rem;
+}
+
+.navbar__main--active {
+  background-color: map-get($feature-colors, navbar-active);
+}
+
+.navbar__main--overflow {
   display: flex;
   flex-direction: column;
 }
 
-.overflow-menu-item {
-  margin: 0.5rem;
-  padding: 0.5rem;
+a span {
+  margin: 0.1rem;
+  padding: 0.1rem;
+  color: map-get($feature-colors, menu-item);
 }
 
-.mat-menu-item {
-  color: white;
+i {
+  font-style: normal;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.navbar__main--overflow:focus {
+  padding-left: 8px;
 }

@@ -1,19 +1,46 @@
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+// Variables and functions used in this style sheet
+$min-bpoint01: 700px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
 .outer-card {
-  margin: 10px;
-  min-width: 300px;
-  max-width: 300px;
-  padding: 10px;
+  margin: 1%;
+  width: 90vw;
+  max-width: 19rem;
+  padding: 1%;
   background: #212121;
+
+  @include min-width($min-bpoint01) {
+    width: 19rem;
+  }
 }
 
 .board {
-  min-height: 35px;
+  min-height: 3rem;
+}
+
+.mat-card-title {
+  white-space: nowrap;
+  margin: 2% 0.25% 0.5%;
+  font-size: 1rem;
 }
 
 .inner-card {
-  margin: 5px 0;
+  margin: 1.5% 0;
   cursor: pointer;
   word-wrap: break-word;
+}
+
+.btn-add,
+.btn-delete {
+  margin: 1% 2%;
 }
 
 .cdk-drag-animating {

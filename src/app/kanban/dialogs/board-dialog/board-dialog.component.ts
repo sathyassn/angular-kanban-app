@@ -31,4 +31,10 @@ export class BoardDialogComponent implements OnInit {
     const boardTitle: string = this.form.get('title')?.value;
     this.dialogRef.close(boardTitle);
   }
+
+  onKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.sendData();
+    }
+  }
 }

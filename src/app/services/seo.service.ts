@@ -13,7 +13,7 @@ export class SeoService {
   ) {}
 
   generateTags({ title = '', description = '', image = '' }) {
-    this.title.setTitle(`Kanban App | ${title}`);
+    this.title.setTitle(`Kanban | ${title}`);
     this.meta.addTags([
       // Open Graph
       { name: 'og:url', content: ` ${this.router.url}` },

@@ -1,0 +1,72 @@
+// Fonts
+$font-size-root: 16px;
+
+@mixin primary-font($size) {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: $size;
+}
+@mixin secondary-font($size) {
+  font-family: "Oxygen Mono", monospace;
+  font-weight: 400;
+  font-size: $size;
+}
+
+// Box Shadows
+$box-shadows: (
+  main: 0 5px 15px 0 rgba(0, 0, 0, 0.15),
+  nav: 1px 1px 10px 1px rgba(0, 0, 0, 0.3),
+);
+
+// Color Names
+$colors: (
+  green-main: #36e9b6,
+  green-light: #35e9b680,
+  grey-dark-01: #444444,
+  grey-dark-02: #303030,
+  white-full: #ffffff,
+  white-off-01: #f0f0f0,
+  white-off-02: #d3d3d3,
+  white-off-03: #cfcfcf,
+  black-off-01: #141414,
+  black-off-02: #212121,
+  black-off-03: #2d2d2d,
+);
+
+/*
+* Colors by feature
+* (Use element/feature and its state for naming and not color/shade)
+*/
+$feature-colors: (
+  content-highlight: map-get($colors, green-main),
+  selection-highlight: map-get($colors, green-light),
+  background-root: map-get($colors, black-off-03),
+  background-list: map-get($colors, black-off-02),
+  background-detail: map-get($colors, black-off-02),
+  menu-item: map-get($colors, white-full),
+  btn-primary: map-get($colors, green-main),
+  btn-primary-text: map-get($colors, grey-dark-01),
+  btn-primary-focus: map-get($colors, white-off-01),
+  btn-primary-focus-text: map-get($colors, grey-dark-01),
+  btn-board-background: map-get($colors, grey-dark-01),
+  navbar-active: map-get($colors, grey-dark-01),
+  side-nav-active: map-get($colors, black-off-01),
+  text-description: map-get($colors, white-off-02),
+  text-card: map-get($colors, green-main),
+  link-background: map-get($colors, grey-dark-02),
+);
+
+// Re-usable feature styles
+@mixin btn-primary {
+  width: fit-content;
+  margin: auto;
+
+  background-color: map-get($feature-colors, btn-primary);
+  color: map-get($feature-colors, btn-primary-text);
+
+  &:focus,
+  &:hover {
+    background-color: map-get($feature-colors, btn-primary-focus);
+    color: map-get($feature-colors, btn-primary-focus-text);
+  }
+}

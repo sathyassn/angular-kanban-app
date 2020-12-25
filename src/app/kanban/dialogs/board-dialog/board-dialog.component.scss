@@ -1,9 +1,22 @@
 .dialog-form {
   display: flex;
   flex-direction: column;
-  min-width: 20vw;
-  max-width: 30vw;
-  min-height: 30vh;
-  max-height: 40vh;
+  max-width: 30rem;
+  align-items: flex-start;
+}
+
+.dialog-form__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   overflow: visible;
+}
+
+.dialog-form__content p {
+  white-space: nowrap;
+}
+
+.dialog-form__actions {
+  display: flex;
+  flex-wrap: nowrap;
 }

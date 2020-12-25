@@ -15,7 +15,7 @@ export class SnackService {
   ) {}
 
   authError() {
-    this.snackBar.open('You must be logged in!', 'OK', { duration: 5000 });
+    this.snackBar.open('You must be logged in!', 'OK', { duration: 3000 });
 
     return this.snackBar._openedSnackBarRef
       ?.onAction()

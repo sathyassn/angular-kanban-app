@@ -1,28 +1,31 @@
-<mat-card class="card-main" *ngIf="technology | async as tech">
-  <mat-card-header>
-    <mat-card-title class="tech-title">{{ tech.name }}</mat-card-title>
-    <!-- <mat-card-subtitle>Note on the tech</mat-card-subtitle> -->
-  </mat-card-header>
-  <img
-    class="tech-image"
-    mat-card-image
-    [src]="'/assets/technologies/' + tech.image"
-    [alt]="tech.name"
-  />
-  <mat-card-content>
-    <p class="tech-description">{{ tech.description }}</p>
-  </mat-card-content>
-</mat-card>
+<div class="container">
+  <mat-card class="container__card--main" *ngIf="technology | async as tech">
+    <mat-card-header class="card__main--header">
+      <mat-card-title class="main__header-title">{{
+        tech.name
+      }}</mat-card-title>
+    </mat-card-header>
+    <img
+      class="card__main--image"
+      mat-card-image
+      [src]="'/assets/technologies/' + tech.image"
+      [alt]="tech.name"
+    />
+    <mat-card-content class="card__main--content">
+      <p class="main__content--description">{{ tech.description }}</p>
+    </mat-card-content>
+  </mat-card>
 
-<mat-card class="card-sub">
-  <p>Content rendered using Angular Universal, Node.js & Google Cloud Run</p>
-  <p>Paste URL:</p>
-  <pre>/{{ techId }}</pre>
-  <a
-    href="https://cards-dev.twitter.com/validator"
-    target="blank"
-    mat-stroked-button
-    >Twitter Card Validator</a
-  >
-  <button mat-raised-button routerLink="/technologies">Back</button>
-</mat-card>
+  <mat-card class="container__card--sub">
+    <p>Content rendered using Angular Universal, Node.js & Google Cloud Run</p>
+    <p>Paste URL:</p>
+    <pre aria-label="URL for Twitter card validation">/{{ techId }}</pre>
+    <a
+      href="https://cards-dev.twitter.com/validator"
+      target="blank"
+      mat-stroked-button
+      >Twitter Card Validator</a
+    >
+    <button mat-raised-button routerLink="/technologies">Back</button>
+  </mat-card>
+</div>

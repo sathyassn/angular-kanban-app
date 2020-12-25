@@ -1,12 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { Board } from '../board.model';
 import { BoardService } from '../board.service';
 import { BoardDialogComponent } from '../dialogs/board-dialog/board-dialog.component';
 import { SeoService } from '../../services/seo.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-board-list',
@@ -16,11 +18,18 @@ import { SeoService } from '../../services/seo.service';
 export class BoardListComponent implements OnInit, OnDestroy {
   boards: Board[] = [];
   sub: Subscription = new Subscription();
+  isSmall$: Observable<boolean> = this.breakpointObserver
+    .observe(['(max-width: 700px)'])
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
 
   constructor(
     private boardService: BoardService,
     private dialog: MatDialog,
-    private seo: SeoService
+    private seo: SeoService,
+    private breakpointObserver: BreakpointObserver
   ) {}
 
   ngOnInit(): void {

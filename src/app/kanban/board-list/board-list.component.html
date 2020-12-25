@@ -1,17 +1,31 @@
 <div class="board-button">
-  <button mat-button color="accent" cdkDragDisabled (click)="openBoardDialog()">
+  <button
+    aria-label="add new board button"
+    mat-button
+    color="accent"
+    cdkDragDisabled
+    (click)="openBoardDialog()"
+  >
     <mat-icon>add</mat-icon>
     New Board
   </button>
 </div>
 <div
+  aria-label="kanban boards list area"
   cdkDropList
   cdkDropListGroup
-  cdkDropListOrientation="horizontal"
+  [cdkDropListOrientation]="(isSmall$ | async) ? 'vertical' : 'horizontal'"
   class="boards"
   (cdkDropListDropped)="drop($event)"
 >
-  <app-board cdkDrag *ngFor="let board of boards" [board]="board">
-    <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+  <app-board
+    class="list-board"
+    cdkDrag
+    *ngFor="let board of boards"
+    [board]="board"
+  >
+    <mat-icon aria-label="kanban board drag handle" cdkDragHandle class="handle"
+      >drag_indicator</mat-icon
+    >
   </app-board>
 </div>

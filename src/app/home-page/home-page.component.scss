@@ -1,4 +1,183 @@
-h2 {
-  margin-top: 2rem;
-  text-align: center;
+// SCSS styles partial import
+@import "src/_styles.partials.scss";
+
+//home-page scss variables & functions
+$min-bpoint01: 375px;
+$min-bpoint02: 425px;
+$min-bpoint03: 700px;
+$min-bpoint04: 768px;
+$min-bpoint05: 1024px;
+$min-bpoint06: 1840px;
+
+@mixin min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+.container__home {
+  padding: 1% 4%;
+  display: grid;
+  grid-template-columns: 98%;
+  grid-template-rows: max-content;
+  grid-template-areas:
+    "title"
+    "subject"
+    "image"
+    "details"
+    "source"
+    "footer";
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5%;
+  row-gap: 0.5%;
+
+  @include min-width($min-bpoint05) {
+    grid-template-columns: 43% 57%;
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "title image"
+      "subject image"
+      "details image"
+      "details image"
+      "source image"
+      "footer footer";
+  }
+
+  @include min-width($min-bpoint06) {
+    grid-template-columns: 40% 60%;
+  }
+}
+
+.content__heading--title {
+  grid-area: title;
+  align-self: start;
+  margin-top: 3%;
+
+  @include min-width($min-bpoint03) {
+    margin-left: 2%;
+  }
+}
+
+.content__heading--title h1 {
+  @include secondary-font(1.5rem);
+
+  @include min-width($min-bpoint04) {
+    @include secondary-font(1.75rem);
+  }
+
+  @include min-width($min-bpoint05) {
+    @include secondary-font(2rem);
+  }
+}
+
+.content__heading--subject {
+  grid-area: subject;
+  margin: 1.5% auto;
+
+  @include min-width($min-bpoint05) {
+    align-self: start;
+    margin: 1% auto 1% 1%;
+  }
+}
+
+.content__heading--subject h2,
+.content__heading--subject p {
+  @include secondary-font(0.9rem);
+
+  @include min-width($min-bpoint01) {
+    @include secondary-font(1rem);
+  }
+
+  @include min-width($min-bpoint02) {
+    @include secondary-font(1.1rem);
+  }
+
+  @include min-width($min-bpoint04) {
+    @include secondary-font(1.2rem);
+  }
+}
+
+.content__image {
+  margin: 1% auto;
+  grid-area: image;
+  align-self: center;
+}
+
+.content__image img {
+  width: 65vw;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: map-get($box-shadows, main);
+
+  @include min-width($min-bpoint05) {
+    width: 54vw;
+    max-width: 600px;
+  }
+
+  @include min-width($min-bpoint06) {
+    width: 65vw;
+    max-width: 800px;
+  }
+}
+
+.content__details--items {
+  margin: 1% auto;
+  grid-area: details;
+
+  @include min-width($min-bpoint05) {
+    align-self: start;
+    margin: 1% auto 1% 1%;
+  }
+}
+
+.content__details--items p {
+  @include secondary-font(0.8rem);
+  white-space: nowrap;
+  line-height: normal;
+
+  @include min-width($min-bpoint01) {
+    @include secondary-font(0.9rem);
+  }
+  @include min-width($min-bpoint02) {
+    @include secondary-font(1rem);
+  }
+  @include min-width($min-bpoint03) {
+    @include secondary-font(1.1rem);
+  }
+}
+
+.content__details--source {
+  margin: 1% auto;
+  grid-area: source;
+  justify-self: center;
+
+  @include min-width($min-bpoint05) {
+    margin: 1% auto;
+  }
+}
+
+.content__highlight {
+  color: map-get($feature-colors, content-highlight);
+}
+
+.content__tab1 {
+  padding-left: 2%;
+}
+
+.content__tab2 {
+  padding-left: 4%;
+}
+
+.btn-source {
+  font-size: 1rem;
+  @include btn-primary();
+}
+
+.footer {
+  grid-area: footer;
+  margin: 5% auto;
+  @include min-width($min-bpoint05) {
+    margin: 1% auto;
+  }
 }

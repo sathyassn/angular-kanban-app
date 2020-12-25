@@ -1,10 +1,18 @@
 <button
+  aria-label="delete button"
   mat-button
   color="warn"
   (click)="canDelete ? deleteItem() : prepareForDelete()"
 >
   <mat-icon>delete</mat-icon>
-  <span *ngIf="canDelete">Confirm</span>
+  <span aria-label="confirm delete" *ngIf="canDelete">Confirm</span>
 </button>
 
-<button mat-button *ngIf="canDelete" (click)="cancel()">Cancel</button>
+<button
+  aria-label="cancel delete"
+  mat-button
+  *ngIf="canDelete"
+  (click)="cancel()"
+>
+  Cancel
+</button>
