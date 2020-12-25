@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "target": "angularfire-my-app",
-    "public": "dist/browser",
+    "public": "dist/kanban-app/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
