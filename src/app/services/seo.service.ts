@@ -15,6 +15,8 @@ export class SeoService {
   generateTags({ title = '', description = '', image = '' }) {
     this.title.setTitle(`Kanban | ${title}`);
     this.meta.addTags([
+      // meta tag
+      { name: 'description', content: description },
       // Open Graph
       { name: 'og:url', content: ` ${this.router.url}` },
       { name: 'og:title', content: title },
