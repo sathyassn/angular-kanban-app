@@ -176,7 +176,7 @@ $min-bpoint06: 1840px;
 
 .footer {
   grid-area: footer;
-  margin: 5% auto;
+  margin: 8% auto;
   @include min-width($min-bpoint05) {
     margin: 1% auto;
   }
