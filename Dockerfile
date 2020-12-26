@@ -8,6 +8,8 @@ RUN npm install
 # Copy local code to the container
 COPY . .
 
+RUN npm run prerender
+
 RUN npm run build:ssr
 
 CMD ["npm", "run", "serve:ssr"]
