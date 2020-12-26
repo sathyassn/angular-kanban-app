@@ -5,7 +5,7 @@
     </div>
 
     <div class="content__auth--google" *ngIf="!(afAuth.authState | async)">
-      <a mat-raised-button appGoogleSignin>
+      <a mat-stroked-button appGoogleSignin>
         <img src="assets/google-icon.svg" alt="Google Icon" />
         Login with Google
       </a>
