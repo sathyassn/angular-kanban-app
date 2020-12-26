@@ -35,12 +35,13 @@
 .content__auth--google {
   grid-area: google;
   justify-self: center;
-  width: fit-content;
+  // width: fit-content;
   margin: 1% auto;
 }
 
 .content__auth--google img {
   width: 1.35rem;
+  height: 1.38rem;
   padding: 0.2rem;
   vertical-align: middle;
 }
