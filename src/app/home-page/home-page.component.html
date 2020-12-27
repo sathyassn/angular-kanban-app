@@ -17,10 +17,30 @@
   </div>
 
   <div class="content__image">
-    <img
-      src="assets/kanban-board/kanban-board-home-800w.png"
-      alt="Kanban board image"
-    />
+    <picture>
+      <source
+        type="image/webp"
+        srcset="assets/kanban-board/kanban-board-home-425w.webp"
+        media="max-width: 425px"
+      />
+      <source
+        type="image/webp"
+        srcset="assets/kanban-board/kanban-board-home-768w.webp"
+      />
+      <source
+        type="image/png"
+        srcset="assets/kanban-board/kanban-board-home-425w.png"
+        media="max-width: 425px"
+      />
+      <source
+        type="image/png"
+        srcset="assets/kanban-board/kanban-board-home-768w.png"
+      />
+      <img
+        src="assets/kanban-board/kanban-board-home-768w.png"
+        alt="Kanban board image"
+      />
+    </picture>
   </div>
 
   <div class="content__details--items">

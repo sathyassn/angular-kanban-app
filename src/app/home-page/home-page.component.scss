@@ -106,18 +106,18 @@ $min-bpoint06: 1840px;
 
 .content__image img {
   width: 65vw;
-  max-width: 600px;
+  max-width: 768px;
   border-radius: 10px;
   box-shadow: map-get($box-shadows, main);
 
   @include min-width($min-bpoint05) {
     width: 54vw;
-    max-width: 600px;
+    max-width: 768px;
   }
 
   @include min-width($min-bpoint06) {
     width: 65vw;
-    max-width: 800px;
+    max-width: 768px;
   }
 }
 
