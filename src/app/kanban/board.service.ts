@@ -109,25 +109,4 @@ export class BoardService {
     refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
     batch.commit();
   }
-
-  /**
-   * Obtain length of task array in a board
-   */
-  taskLength(boardId: string) {
-    return this.db
-      .collection<Board>('boards')
-      .doc(boardId)
-      .snapshotChanges()
-      .pipe(
-        map((snap) => {
-          const boardData = snap.payload.data();
-          const taskLength = boardData?.tasks.length;
-          if (typeof taskLength === 'number' && taskLength > 0) {
-            return taskLength;
-          } else {
-            return 0;
-          }
-        })
-      );
-  }
 }
