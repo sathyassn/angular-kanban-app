@@ -14,7 +14,7 @@ $min-bpoint01: 700px;
   margin: 1%;
   width: 90vw;
   max-width: 19rem;
-  padding: 1%;
+  padding: 4% 4% 2%;
   background: #212121;
 
   @include min-width($min-bpoint01) {
@@ -33,7 +33,7 @@ $min-bpoint01: 700px;
 }
 
 .inner-card {
-  margin: 1.5% 0;
+  margin: 2% 0;
   cursor: pointer;
   word-wrap: break-word;
 }
