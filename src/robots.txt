@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://kanban.cloudcreate.dev/sitemap.xml
