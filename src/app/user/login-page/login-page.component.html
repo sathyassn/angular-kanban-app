@@ -6,12 +6,7 @@
 
     <div class="content__auth--google" *ngIf="!(afAuth.authState | async)">
       <a mat-raised-button appGoogleSignin aria-label="Login with Google">
-        <!-- <picture> -->
-        <object data="assets/google-icon.svg" type="image/svg+xml">
-          <img src="assets/google-icon.svg" alt="Google Icon" />
-        </object>
-        <!-- </picture> -->
-
+        <img src="assets/google-icon.svg" alt="Google Icon" />
         <span>Login with Google</span>
       </a>
       <h1 *ngIf="!(afAuth.authState | async)">OR</h1>
