@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
       description:
         'Kanban App built using Angular, Firebase, NodeJS, Google Cloud',
       image:
-        'https://firebasestorage.googleapis.com/v0/b/angularfire-my-app.appspot.com/o/kanban%2Fkanban-black-icon.png?alt=media&token=0e21f0ea-fa6b-4a14-b27d-0467a3e6e51b',
+        'https://firebasestorage.googleapis.com/v0/b/angularfire-my-app.appspot.com/o/kanban%2Fkanban-icon-96x96.png?alt=media&token=a44bf284-12d1-465b-a8a6-811a58f3af76',
     });
   }
 }
