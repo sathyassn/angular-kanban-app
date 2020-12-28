@@ -39,7 +39,7 @@ export class DetailPageComponent implements OnInit {
           this.seo.generateTags({
             title: tech.name,
             description: tech.description,
-            image: tech.image,
+            image: tech.imageLink,
           });
         })
       );
